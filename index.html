@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agende suas consultas médicas com facilidade na Clínica Cristo Rei">
+    <title>Clínica Cristo Rei</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Página Inicial</a></li>
+                <li><a href="#agendamento">Agendamento</a></li>
+                <li><a href="javascript:void(0);" id="minhas-consultas-btn">Minhas Consultas</a></li>
+                <li><a href="javascript:void(0);" id="desmarcar-consulta-btn">Desmarcar Consultas</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Página Inicial -->
+    <main>
+        <section id="inicio" class="intro">
+            <h1>Bem-vindo à Clínica Cristo Rei</h1>
+            <p>Agende sua consulta com médicos especialistas no conforto da sua casa.</p>
+        </section>
+
+        <!-- Formulário de Agendamento -->
+        <section id="agendamento" class="agendamento">
+            <h1>Agende sua Consulta</h1>
+            <form id="form-agendamento">
+                <label for="especialidades">Escolha a especialidade:</label>
+                <select name="especialidade" id="especialidades" required>
+                    <option value="">Selecione</option>
+                    <option value="clinico-geral">Clínico Geral</option>
+                    <option value="pediatra">Pediatra</option>
+                    <option value="anestesiologista">Anestesiologista</option>
+                    <option value="endocrinologista">Endocrinologista</option>
+                    <option value="dermatologista">Dermatologista</option>
+                    <option value="cirurgiao-geral">Cirurgião Geral</option>
+                    <option value="ortopedista">Ortopedista</option>
+                    <option value="neurologista">Neurologista</option>
+                    <option value="ultrassonografista">Ultrassonografista</option>
+                    <option value="cardiologista">Cardiologista</option>
+                    <option value="urologista">Urologista</option>
+                </select>
+            
+                <label for="medico">Escolha um Médico:</label>
+                <select name="medico" id="medico" required>
+                    <option value="">Selecione uma especialidade primeiro</option>
+                </select>
+            
+                <label for="data">Escolha a Data:</label>
+                <input type="date" name="data" id="data" required>
+            
+                <label for="hora">Escolha o Horário:</label>
+                <input type="time" name="hora" id="hora" required>
+            
+                <button type="submit">Agendar Consulta</button>
+            </form>
+            
+        </section>
+
+        <!-- Pop-up Minhas Consultas -->
+        <div id="minhas-consultas-popup" class="popup">
+            <div class="popup-content">
+                <h2>Consultas Agendadas</h2>
+                <ul id="consultas-lista">
+                    <!-- Consultas serão adicionadas dinamicamente aqui -->
+                    <li></li>
+                    <li></li>
+                </ul>
+                <button class="close-btn" id="close-minhas-consultas-popup">Fechar</button>
+            </div>
+        </div>
+
+        <!-- Pop-up Desmarcar Consultas -->
+        <div id="desmarcar-consulta-popup" class="popup">
+            <div class="popup-content">
+                <h2>Escolha a Consulta para Cancelar</h2>
+                <select id="consulta-para-cancelar">
+                    <option value="consulta1"></option>
+                    <option value="consulta2"></option>
+                </select>
+                <button class="close-btn" id="cancelar-consulta-btn">Cancelar Consulta</button>
+                <button class="close-btn" id="close-desmarcar-consulta-popup">Fechar</button>
+            </div>
+        </div>
+
+        <!-- Contato -->
+        <section id="contato" class="contato">
+            <h1>Contato</h1>
+            <p>Fale conosco para mais informações ou dúvidas.</p>
+            <h2>WhatsApp: (94) 9 9999-9888</h2>
+            <h2>Endereço: Rua Alemanha, 78, Centro, Parauapebas-PA</h2>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 Clínica Cristo Rei - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
