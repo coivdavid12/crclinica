@@ -29,8 +29,8 @@
 
         <section id="agendamento" class="agendamento">
             <h1>Agende sua Consulta</h1>
-            <form id="form-agendamento" aria-labelledby="agendamento>
-                <label for="especialidades">Especialidade:</label>
+            <form id="form-agendamento">
+        <label for="especialidades">Especialidade:</label>
         <select id="especialidades" name="especialidade">
             <option value="">Selecione uma especialidade</option>
             <option value="clinico-geral">Clínico Geral</option>
@@ -45,20 +45,20 @@
             <option value="cardiologista">Cardiologista</option>
             <option value="urologista">Urologista</option>
         </select>
-            
-                <label for="medico">Escolha um Médico:</label>
-                <select name="medico" id="medico" required>
-                    <option value="">Selecione uma especialidade primeiro</option>
-                </select>
-            
-                <label for="data">Escolha a Data:</label>
-                <input type="date" name="data" id="data" required>
-            
-                <label for="hora">Escolha o Horário:</label>
-                <input type="time" name="hora" id="hora" required>
-            
-                <button type="submit">Agendar Consulta</button>
-            </form> 
+
+        <label for="medico">Médico:</label>
+        <select id="medico" name="medico">
+            <option value="">Selecione um médico</option>
+        </select>
+
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" required>
+
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora" required>
+
+        <button type="submit">Agendar Consulta</button>
+    </form> 
         </section>
 
         <div id="minhas-consultas-popup" class="popup" aria-hidden="true">
