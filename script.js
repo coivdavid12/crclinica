@@ -3,7 +3,7 @@ document.getElementById("especialidades").addEventListener("change", function() 
     var medicoSelect = document.getElementById("medico");
 
     
-    medicoSelect.innerHTML = '<option value=>"Selecione um médico"</option>';
+    medicoSelect.innerHTML = '<option value=">Selecione um médico>"/option>';
 
     
     var medicos = {
