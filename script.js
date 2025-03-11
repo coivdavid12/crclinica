@@ -160,7 +160,7 @@ document.getElementById("form-agendamento").addEventListener("submit", function(
         return;
     }
 
-    alert(`Consulta agendada com sucesso!\nEspecialidade: ${especialidade}\nMédico: ${medico}\nData: ${data}\nHora: ${hora}`);
+    alert(`Consulta agendada com sucesso!No dia da sua consulta, não esqueça do seu documento pessoal.\nEspecialidade: ${especialidade}\nMédico: ${medico}\nData: ${data}\nHora: ${hora}`);
 
     document.getElementById("form-agendamento").reset();
 });
