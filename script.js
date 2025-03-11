@@ -2,10 +2,10 @@ document.getElementById("especialidades").addEventListener("change", function() 
     var especialidade = this.value;
     var medicoSelect = document.getElementById("medico");
 
-    // Limpa as opções anteriores
+    
     medicoSelect.innerHTML = '<option value="">Selecione um médico</option>';
 
-    // Define médicos baseados na especialidade escolhida
+    
     var medicos = {
         "clinico-geral": [
             "Dr. João Silva",
@@ -61,7 +61,7 @@ document.getElementById("especialidades").addEventListener("change", function() 
         ]
     };
 
-    // Preenche o campo de médicos com os nomes da especialidade selecionada
+    
     if (medicos[especialidade]) {
         medicos[especialidade].forEach(function(medico) {
             var option = document.createElement("option");
@@ -75,10 +75,10 @@ document.getElementById("especialidades").addEventListener("change", function() 
     var especialidade = this.value;
     var medicoSelect = document.getElementById("medico");
 
-    // Limpa as opções anteriores
+    
     medicoSelect.innerHTML = '<option value="">Selecione um médico</option>';
 
-    // Define médicos baseados na especialidade escolhida
+    
     var medicos = {
         "clinico-geral": [
             "Dr. João Silva",
@@ -132,7 +132,7 @@ document.getElementById("especialidades").addEventListener("change", function() 
         ]
     };
 
-    // Preenche o campo de médicos com os nomes da especialidade selecionada
+    
     if (medicos[especialidade]) {
         medicos[especialidade].forEach(function(medico) {
             var option = document.createElement("option");
@@ -143,52 +143,70 @@ document.getElementById("especialidades").addEventListener("change", function() 
     }
 });
 
-// Função para simular o agendamento
-document.getElementById("form-agendamento").addEventListener("submit", function(event) {
-    event.preventDefault(); // Impede a submissão real do formulário
 
-    // Coletando os valores do formulário
+document.getElementById("form-agendamento").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+
+    
     const especialidade = document.getElementById("especialidades").value;
     const medico = document.getElementById("medico").value;
     const data = document.getElementById("data").value;
     const hora = document.getElementById("hora").value;
 
-    // Verificando se os campos estão preenchidos corretamente
+    
     if (!especialidade || !medico || !data || !hora) {
         alert("Por favor, preencha todos os campos.");
         return;
     }
 
-    // Exibindo uma mensagem de confirmação
+    
     alert(`Consulta agendada com sucesso!\nEspecialidade: ${especialidade}\nMédico: ${medico}\nData: ${data}\nHora: ${hora}`);
 
-    // Limpar o formulário após o envio
+    
     document.getElementById("form-agendamento").reset();
 });
 
-    // Abrir o pop-up de "Minhas Consultas"
-document.getElementById('minhas-consultas-btn').addEventListener('click', function() {
-    document.getElementById('minhas-consultas-popup').style.display = 'block';
-});
+   <script>
+        
+        const consultasAgendadas = [];
 
-// Fechar o pop-up de "Minhas Consultas"
-document.getElementById('close-minhas-consultas-popup').addEventListener('click', function() {
-    document.getElementById('minhas-consultas-popup').style.display = 'none';
-});
+        
+        function atualizarConsultas() {
+            const listaConsultas = document.getElementById("consultas-lista");
+            listaConsultas.innerHTML = ""; 
 
-// Abrir o pop-up de "Desmarcar Consultas"
-document.getElementById('desmarcar-consulta-btn').addEventListener('click', function() {
-    document.getElementById('desmarcar-consulta-popup').style.display = 'block';
-});
+            consultasAgendadas.forEach((consulta, index) => {
+                const li = document.createElement("li");
+                li.textContent = `${consulta.medico} - ${consulta.data} às ${consulta.hora} (${consulta.especialidade})`;
+                listaConsultas.appendChild(li);
+            });
+        }
 
-// Fechar o pop-up de "Desmarcar Consultas"
-document.getElementById('close-desmarcar-consulta-popup').addEventListener('click', function() {
-    document.getElementById('desmarcar-consulta-popup').style.display = 'none';
-});
+        document.getElementById('minhas-consultas-btn').addEventListener('click', function () {
+            document.getElementById('minhas-consultas-popup').style.display = 'block';
+            document.getElementById('minhas-consultas-popup').setAttribute('aria-hidden', 'false');
+        });
 
-// Cancelar Consulta
-document.getElementById('cancelar-consulta-btn').addEventListener('click', function() {
-    var consultaSelecionada = document.getElementById('consulta-para-cancelar').value;
-    alert('A consulta selecionada foi cancelada: ' + consultaSelecionada);
-    document.getElementById('desmarcar-consulta-popup').style.display = 'none';
-});
+        document.getElementById('close-minhas-consultas-popup').addEventListener('click', function () {
+            document.getElementById('minhas-consultas-popup').style.display = 'none';
+            document.getElementById('minhas-consultas-popup').setAttribute('aria-hidden', 'true');
+        });
+
+        document.getElementById("form-agendamento").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            const especialidade = document.getElementById("especialidades").value;
+            const medico = document.getElementById("medico").value;
+            const data = document.getElementById("data").value;
+            const hora = document.getElementById("hora").value;
+
+            if (especialidade && medico && data && hora) {
+                
+                consultasAgendadas.push({ especialidade, medico, data, hora });
+
+                atualizarConsultas();
+
+                document.getElementById('minhas-consultas-popup').style.display = 'block';
+                document.getElementById('minhas-consultas-popup').setAttribute('aria-hidden', 'false');
+            }
+        });
