@@ -168,45 +168,4 @@ document.getElementById("form-agendamento").addEventListener("submit", function(
 
    <script>
         
-        const consultasAgendadas = [];
-
-        
-        function atualizarConsultas() {
-            const listaConsultas = document.getElementById("consultas-lista");
-            listaConsultas.innerHTML = ""; 
-
-            consultasAgendadas.forEach((consulta, index) => {
-                const li = document.createElement("li");
-                li.textContent = `${consulta.medico} - ${consulta.data} às ${consulta.hora} (${consulta.especialidade})`;
-                listaConsultas.appendChild(li);
-            });
-        }
-
-        document.getElementById('minhas-consultas-btn').addEventListener('click', function () {
-            document.getElementById('minhas-consultas-popup').style.display = 'block';
-            document.getElementById('minhas-consultas-popup').setAttribute('aria-hidden', 'false');
-        });
-
-        document.getElementById('close-minhas-consultas-popup').addEventListener('click', function () {
-            document.getElementById('minhas-consultas-popup').style.display = 'none';
-            document.getElementById('minhas-consultas-popup').setAttribute('aria-hidden', 'true');
-        });
-
-        document.getElementById("form-agendamento").addEventListener("submit", function(event) {
-            event.preventDefault(); 
-
-            const especialidade = document.getElementById("especialidades").value;
-            const medico = document.getElementById("medico").value;
-            const data = document.getElementById("data").value;
-            const hora = document.getElementById("hora").value;
-
-            if (especialidade && medico && data && hora) {
-                
-                consultasAgendadas.push({ especialidade, medico, data, hora });
-
-                atualizarConsultas();
-
-                document.getElementById('minhas-consultas-popup').style.display = 'block';
-                document.getElementById('minhas-consultas-popup').setAttribute('aria-hidden', 'false');
-            }
-        });
+      
